@@ -1,9 +1,21 @@
 all: hw3  t2 t3 t4 t5 t6
 
-hw3:
-	javac ../Element.java ../Sequence.java ../MyChar.java ../MyInteger.java;
 
-t2:
+hw3: Sequence.class Element.class MyInteger.class MyChar.class
+
+Element.class: 
+	javac Element.java
+
+Sequence.class: Element.class
+	javac Sequence.java
+
+MyInteger.class: Element.class
+	javac MyInteger.java
+
+MyChar.class: Element.class
+	javac MyChar.java
+
+t2: Sequence.class Element.class MyInteger.class MyChar.class
 	javac Test2.java ; java Test2 > Test2.output; diff Test2.correct Test2.output
 
 t3:
