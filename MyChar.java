@@ -1,15 +1,22 @@
 public class MyChar extends Element{
-	private char character;
+	private Char character = new Char();
 	
-	public char MyChar(){ //constructor
-	character = '0';
+	public Char MyChar(){ //constructor
+		character = '0';
 	}
 
-	public char get(){ //get function
-	return character;
+	public Char get(){ //get function
+		return character;
 	}
 
-	public void set(char SetChar){ //set function
-	character = setChar;
+	public void set(Char SetChar){ //set function
+		character = setChar;
 	}
+	
+
+	public void print(){
+		System.out.println("\'"+ character  +"\'");
+
+	}
+
 }
