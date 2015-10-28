@@ -1,9 +1,9 @@
-abstract public class Element(){
+abstract public class Element{
 
 
-	abstract public get();
-	abstract public set(); 
-	abstract public print(); 
+//	abstract public Element get();
+//	abstract public void set(); 
+	abstract public void print(); 
 
 
 

@@ -12,9 +12,13 @@ public class Sequence extends Element{
 	
 	public void print(){
 
+		System.out.print("[ ");  
 		for(int i = 0 ; i < this.length(); i++){
-			System.out.println("[" + seq[i].print() +"]");
+			seq[i].print();
+
 		}
+		System.out.print(" ]");
+		return;
 	
 	} 
 
@@ -26,17 +30,17 @@ public class Sequence extends Element{
 	} 
 	
 	
-	public Seqence[] rest(){
-		Sequence[] x;
-		for(int i = 1; i < this.length(); i++){
-			x[i-1] = seq[i]; 
+	public Sequence rest(){
+		Sequence x = new Sequence();
+		for(int i = 0; i < this.length() - 1 ; i++){
+			x.seq[i] = seq[i+1]; 
 			
 		}
 		
 		return x; 
 	}
 	
-	public void length(){
+	public int length(){
 		
 			return length; 
 	

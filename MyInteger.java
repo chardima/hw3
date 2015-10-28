@@ -1,6 +1,6 @@
 public class MyInteger extends Element{
 	
-	public int integer = new int(); 
+	public int integer; 
 
 	public MyInteger(){
 		integer = 0; 
@@ -11,7 +11,7 @@ public class MyInteger extends Element{
 		return integer; 
 	}
 
-	public void set(Integer val){
+	public void set(int val){
 		integer = val; 
 		
 	}
