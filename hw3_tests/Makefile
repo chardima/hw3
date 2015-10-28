@@ -1,4 +1,16 @@
-all: t2 t3 t4 t5 t6
+all: Element Sequence MyChar MyInteger  t2 t3 t4 t5 t6
+
+Element: 
+	javac Element.java;
+
+Sequence: 
+	javac Sequence.java;
+
+MyChar: 
+	javac MyChar.java; 
+
+MyInteger: 
+	javac MyInteger.java;
 
 t2:
 	javac Test2.java; java Test2 > Test2.output; diff Test2.correct Test2.output

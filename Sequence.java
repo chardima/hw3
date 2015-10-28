@@ -1,11 +1,11 @@
-public Sequence extends Element{
+public class Sequence extends Element{
 
 
 	private Element[] seq;
 	public int length;
 
 	
-	public Sequence{
+	public Sequence(){
 		seq = null; 
 		length = 0;
 	}

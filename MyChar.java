@@ -1,11 +1,11 @@
 public class MyChar extends Element{
-	private Char character = new Char();
+	private char character = new char();
 	
-	public Char MyChar(){ //constructor
+	public char MyChar(){ //constructor
 		character = '0';
 	}
 
-	public Char get(){ //get function
+	public char get(){ //get function
 		return character;
 	}
 

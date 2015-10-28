@@ -1,13 +1,13 @@
 public class MyInteger extends Element{
 	
-	public Integer integer = new Integer(); 
+	public int integer = new int(); 
 
 	public MyInteger(){
 		integer = 0; 
 
 	}
 
-	public Integer get(){
+	public int get(){
 		return integer; 
 	}
 
