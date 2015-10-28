@@ -1,7 +1,7 @@
 public Sequence extends Element{
 
 
-	private Element[] seq = new Element[];
+	private Element[] seq;
 	public int length;
 
 	
@@ -65,6 +65,7 @@ public Sequence extends Element{
 	public void delete(int pos){
 		
 		for(int i = pos; i > this.length()-1; i++){
+					//Element buffer = seq[i - 1];
 					//Element buffer = seq[i - 1];
 					seq[i] = seq[i+1];				
 		}
