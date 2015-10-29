@@ -10,10 +10,9 @@ public class Sequence extends Element{
 	}
 	
 	public void Print(){
-		System.out.println("Length: " + String.valueOf( this.length()));
 		System.out.print("[ "); 
 		 
-		for(int i = 0 ; i < this.length(); i++){
+		for(int i = 1; i < this.length(); i++){
 			
 			//go down and print every element 
 			this.seq.get(i).Print();  
@@ -50,6 +49,7 @@ public class Sequence extends Element{
 	
 		}	
 		else if(pos >= 0 && pos <= this.length()){
+				pos++;
 				this.seq.add(ele, pos);
 				length++; 
 		}

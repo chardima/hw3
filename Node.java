@@ -2,7 +2,7 @@ public class Node{
 
 
 	private Node next; 
-	public Element data;
+	private Element data;
 		
 
 	public Node(Element ndata){

@@ -26,7 +26,7 @@ public class LinkedList{
 		Node temp = new Node(el); 
 		Node curr = this.head;
 		if(index == 0){
-			this.head = temp;
+			curr.setNext(temp);
 		}//setting head
 		else{
 			//checks the index and the last node in the link 
@@ -66,7 +66,7 @@ public class LinkedList{
 	}
 
 	public Element get(int index){
-		if(index < 0){
+		if(index < 0 ){
 			return null; 
 		}
 		Node curr = this.head.getNext(); 
@@ -77,6 +77,13 @@ public class LinkedList{
 			curr = curr.getNext();
 		}
 		return curr.getData();
+	}
+	public void Print(){
+		for(int i = 1; i <= this.length(); i++){
+			this.get(i).Print();
+			System.out.print(" , ");
+		}
+		System.out.print("\n");
 	}
 
 }
