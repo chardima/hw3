@@ -29,7 +29,7 @@ public class Sequence extends Element{
 			
 		}
 		System.out.print("]");
-		this.length = counter; 
+		//this.length = counter; 
 	
 	} 
 
@@ -48,7 +48,20 @@ public class Sequence extends Element{
 	
 	public int length(){
 		
-			return this.length; 
+		int counter = 0;  
+		Node curr = this.seq.getNode(1);//getNode as part of the linked list actually follows the position, sequence shift by 1   
+		while(curr != null){
+			//go down and print every element 
+			//this.seq.get(counter).Print();
+			//curr.getData().Print();  
+			//System.out.print(" ");
+			curr = curr.getNext();
+			counter++;
+			//System.out.println("While Loop Ends");  
+			
+		}
+		this.length = counter;
+		return this.length; 
 	
 	}
 	
