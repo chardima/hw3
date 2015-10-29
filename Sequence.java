@@ -1,12 +1,11 @@
 public class Sequence extends Element{
 
-	//private LinkedList seq = new LinkedList(); 
-	private Element[] seq;
+	private LinkedList seq; 
 	public int length;
 
 	
 	public Sequence(){
-		seq =  new Element[100]; 
+		seq =  new LinkedList(); 
 		length = 0;
 	}
 	
@@ -42,7 +41,7 @@ public class Sequence extends Element{
 	
 	public int length(){
 		
-			return length; 
+			return this.length; 
 	
 	}
 	
@@ -54,12 +53,7 @@ public class Sequence extends Element{
 	
 		}	
 		else if(pos >= 0 && pos <= this.length()){
-			
-			for(int i = pos; i < this.length(); i++){
-					Element buffer = seq[i + 1];
-					this.seq[i+1] = seq[i];
-				}
-				this.seq[pos] = ele;
+				this.seq.add(ele, pos);
 				length++; 
 		}
 		
@@ -69,11 +63,7 @@ public class Sequence extends Element{
 	
 	public void delete(int pos){
 		
-		for(int i = pos; i > this.length()-1; i++){
-					//Element buffer = seq[i - 1];
-					//Element buffer = seq[i - 1];
-					seq[i] = seq[i+1];				
-		}
+			this.seq.delete(pos);
 			length--; 
 		
 	}
