@@ -3,7 +3,6 @@ public class Sequence extends Element{
 	private LinkedList seq; 
 	public int length;
 
-	
 	public Sequence(){
 		seq =  new LinkedList(); 
 		length = 0;
@@ -12,7 +11,7 @@ public class Sequence extends Element{
 	public void Print(){
 		System.out.print("[ "); 
 		 
-		for(int i = 1; i < this.length(); i++){
+		for(int i = 1; i < this.length()+1; i++){
 			
 			//go down and print every element 
 			this.seq.get(i).Print();  

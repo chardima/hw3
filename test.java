@@ -16,6 +16,7 @@ public class test{
 		s.Print();
 		s.add(ch2, 2);
 		s.Print();
+		s.first();
 
 
 

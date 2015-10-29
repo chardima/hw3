@@ -1,21 +1,20 @@
 public class Sequence extends Element{
 
-	//private LinkedList seq = new LinkedList(); 
-	private Element[] seq;
+	private LinkedList seq; 
 	public int length;
 
-	
 	public Sequence(){
-		seq =  new Element[100]; 
+		seq =  new LinkedList(); 
 		length = 0;
 	}
 	
 	public void Print(){
-
-		System.out.print("[ ");  
-		for(int i = 0 ; i < this.length(); i++){
+		System.out.print("[ "); 
+		 
+		for(int i = 1; i < this.length()+1; i++){
 			
-			seq[i].Print();
+			//go down and print every element 
+			this.seq.get(i).Print();  
 			System.out.print(" , ");
 		}
 		System.out.print(" ]\n");
@@ -24,7 +23,7 @@ public class Sequence extends Element{
 
 	public Element first(){
 		
-		return seq[0];
+		return this.seq.get(0);
 		
 		
 	} 
@@ -32,17 +31,12 @@ public class Sequence extends Element{
 	
 	public Sequence rest(){
 		Sequence x = new Sequence();
-		for(int i = 0; i < this.length() - 1 ; i++){
-			x.seq[i] = seq[i+1]; 
-			
-		}
-		
 		return x; 
 	}
 	
 	public int length(){
 		
-			return length; 
+			return this.length; 
 	
 	}
 	
@@ -54,12 +48,8 @@ public class Sequence extends Element{
 	
 		}	
 		else if(pos >= 0 && pos <= this.length()){
-			
-			for(int i = pos; i < this.length(); i++){
-					Element buffer = seq[i + 1];
-					this.seq[i+1] = seq[i];
-				}
-				this.seq[pos] = ele;
+				pos++;
+				this.seq.add(ele, pos);
 				length++; 
 		}
 		
@@ -69,11 +59,7 @@ public class Sequence extends Element{
 	
 	public void delete(int pos){
 		
-		for(int i = pos; i > this.length()-1; i++){
-					//Element buffer = seq[i - 1];
-					//Element buffer = seq[i - 1];
-					seq[i] = seq[i+1];				
-		}
+			this.seq.remove(pos);
 			length--; 
 		
 	}
