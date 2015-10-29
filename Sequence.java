@@ -10,11 +10,13 @@ public class Sequence extends Element{
 	}
 	
 	public void Print(){
-
-		System.out.print("[ ");  
+		System.out.println("Length: " + String.valueOf( this.length()));
+		System.out.print("[ "); 
+		 
 		for(int i = 0 ; i < this.length(); i++){
 			
-			seq[i].Print();
+			//go down and print every element 
+			this.seq.get(i).Print();  
 			System.out.print(" , ");
 		}
 		System.out.print(" ]\n");
@@ -23,7 +25,7 @@ public class Sequence extends Element{
 
 	public Element first(){
 		
-		return seq[0];
+		return this.seq.get(0);
 		
 		
 	} 
@@ -31,11 +33,6 @@ public class Sequence extends Element{
 	
 	public Sequence rest(){
 		Sequence x = new Sequence();
-		for(int i = 0; i < this.length() - 1 ; i++){
-			x.seq[i] = seq[i+1]; 
-			
-		}
-		
 		return x; 
 	}
 	
@@ -63,7 +60,7 @@ public class Sequence extends Element{
 	
 	public void delete(int pos){
 		
-			this.seq.delete(pos);
+			this.seq.remove(pos);
 			length--; 
 		
 	}

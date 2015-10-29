@@ -8,7 +8,8 @@ public class test{
 		i = new MyInteger();
 		i.Set(9);
 		s = new Sequence();
-		s.add(c, 0); 
+		s.add(c, 0);
+		s.Print(); 
 		s.add(i, 1);
 		s.Print();
 		System.out.println("\nEnd of Test\n"); 

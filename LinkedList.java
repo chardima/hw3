@@ -16,7 +16,6 @@ public class LinkedList{
 		Node curr = this.head; 
 		while(curr.getNext() != null){
 			curr = curr.getNext();
-
 		}
 		curr.setNext(temp); 
 		
@@ -26,15 +25,17 @@ public class LinkedList{
 	public void  add(Element el, int index){
 		this.num++;
 		Node temp = new Node(el); 
-		Node curr = this.head; 
+		Node curr = this.head;
+		//checks the index and the last node in the link 
 		for(int i = 1; i < index && curr.getNext() != null; i++){
 			curr = curr.getNext(); 
-
 		}
-		temp.setNext(curr.getNext());
+	////	temp.setNext(curr.getNext());	curr.setNext(temp);
+		Node cnxt = curr.getNext(); 
+		cnxt.setNext(curr.getNext());
 		curr.setNext(temp);
-		this.num++;
-
+		temp.setNext(cnxt);
+		
 	}
 	
 	public boolean remove(int index){
@@ -76,6 +77,5 @@ public class LinkedList{
 		}
 		return curr.getData();
 	}
-
 
 }
