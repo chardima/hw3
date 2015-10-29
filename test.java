@@ -25,6 +25,8 @@ public class test{
 		s.Print();
 		System.out.println();
 		Element e = s.first();
+		s.delete(1);
+		s.Print();
 		e.Print();
 		System.out.println();
 		Sequence s2; 
