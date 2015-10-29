@@ -25,13 +25,18 @@ public class LinkedList{
 	public void  add(Element el, int index){
 		Node temp = new Node(el); 
 		Node curr = this.head;
-		//checks the index and the last node in the link 
-		for(int i = 1; i < index && curr.getNext() != null; i++){
-			curr = curr.getNext(); 
+		if(index == 0){
+			this.head = temp;
+		}//setting head
+		else{
+			//checks the index and the last node in the link 
+			for(int i = 1; i < index && curr.getNext() != null; i++){
+				curr = curr.getNext(); 
+			}
+			temp.setNext(curr.getNext());
+			curr.setNext(temp);
 		}
-		temp.setNext(curr.getNext());
-		curr.setNext(temp);
-		this.num++;	
+			this.num++;	
 	}
 	
 	public boolean remove(int index){
