@@ -63,9 +63,9 @@ public class Sequence extends Element{
 	}
 	
 	public void delete(int pos){
-		
-			this.seq.remove(pos);
-			length--; 
+		pos++;	
+		this.seq.remove(pos);
+		length--; 
 		
 	}
 	

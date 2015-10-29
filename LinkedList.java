@@ -53,7 +53,7 @@ public class LinkedList{
 			curr = curr.getNext();
 
 		}
-		curr.setNext(curr.getNext().getNext());
+		curr.setNext((curr.getNext()).getNext());
 		this.num--;
 		return true;
 		
