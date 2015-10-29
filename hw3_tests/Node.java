@@ -19,7 +19,11 @@ public class Node{
 	}
 
 	public Element getData(){
-		return this.data; 
+		if(this.data != null){
+			return this.data;
+		} else {
+			return null; 
+		} 
 	}
 
 	public void setData(Element ele){

@@ -27,6 +27,16 @@ public class test{
 		Element e = s.first();
 		e.Print();
 		System.out.println();
+		Sequence s2; 
+		s2 = s.rest();
+		s2.Print();
+		System.out.println("\nAdding h at pos s1[3]"); 
+		s.add(ch, 3);
+		System.out.print("s1:");
+		s.Print();
+		System.out.print("\ns2:");
+		s2.Print(); 
+		System.out.println();
 
 
 /*

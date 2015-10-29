@@ -12,12 +12,31 @@ public class test{
 		s = new Sequence();
 		s.add(ch, 0);
 		s.Print(); 
+		System.out.println();
 		s.add(in, 1);
 		s.Print();
-		s.add(ch2, 2);
+		System.out.println();
+		s.add(ch2, 1);
 		s.Print();
+		System.out.println();
+		MyInteger f = new MyInteger();
+		f.Set(99); 
+		s.add(f, 1);
+		s.Print();
+		System.out.println();
 		Element e = s.first();
 		e.Print();
+		System.out.println();
+		Sequence s2; 
+		s2 = s.rest();
+		s2.Print();
+		System.out.println("\nAdding h at pos s1[3]"); 
+		s.add(ch, 3);
+		System.out.print("s1:");
+		s.Print();
+		System.out.print("\ns2:");
+		s2.Print(); 
+		System.out.println();
 
 
 /*

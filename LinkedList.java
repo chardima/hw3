@@ -9,6 +9,26 @@ public class LinkedList{
 		this.num = 0; 
 
 	}
+	public LinkedList(Node n){
+		this.head = n;
+		int i = 0;
+		while(n.getNext() != null){
+			n = n.getNext();
+			i++;
+		}
+		this.num = i;
+
+	}
+	public Node getNode(int index){
+		int i =  0;
+		Node curr = this.head;  
+		while(curr.getNext() != null && i < index){
+			curr = curr.getNext();
+			i++;
+		}
+		return curr;
+		
+	}
 
 	public void add(Element el){
 		this.num++;

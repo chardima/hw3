@@ -7,15 +7,25 @@ public class Sequence extends Element{
 		seq =  new LinkedList(); 
 		length = 0;
 	}
+
+	public Sequence(Node n){
+		seq  = new LinkedList(n); 
+		length = seq.length(); 
+
+	}
 	
 	public void Print(){
 		System.out.print("[ "); 
-		 
-		for(int i = 1; i < this.length()+1; i++){
-			
+		int counter = 1;  
+		Node curr = this.seq.getNode(counter);//getNode as part of the linked list actually follows the position, sequence shift by 1   
+		while(curr != null){
 			//go down and print every element 
-			this.seq.get(i).Print();  
+			//this.seq.get(counter).Print();
+			curr.getData().Print();  
 			System.out.print(" ");
+			curr = curr.getNext();
+			//System.out.println("While Loop Ends");  
+			
 		}
 		System.out.print("]");
 	
@@ -30,13 +40,8 @@ public class Sequence extends Element{
 	
 	
 	public Sequence rest(){
-		Sequence x = new Sequence();
-		int pos = 0;
-		for(int i = 0; i < this.length() - 1; i++){
-			pos = i + 2; 
-			x.add(this.seq.get(pos), i);
-		}
-		return x; 
+		Sequence ref = new Sequence(this.seq.getNode(1)); 
+		return  ref; 
 	}
 	
 	public int length(){
