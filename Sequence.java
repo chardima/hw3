@@ -15,9 +15,9 @@ public class Sequence extends Element{
 			
 			//go down and print every element 
 			this.seq.get(i).Print();  
-			System.out.print(" , ");
+			System.out.print(" ");
 		}
-		System.out.print(" ]\n");
+		System.out.print("]");
 	
 	} 
 
@@ -31,6 +31,11 @@ public class Sequence extends Element{
 	
 	public Sequence rest(){
 		Sequence x = new Sequence();
+		int pos = 0;
+		for(int i = 0; i < this.length() - 1; i++){
+			pos = i + 2; 
+			x.add(this.seq.get(pos), i);
+		}
 		return x; 
 	}
 	
@@ -43,7 +48,7 @@ public class Sequence extends Element{
 	public void add(Element ele, int pos){
 		//check if within bounds, length() is number of objects and positions start at 0	
 		if(pos < 0 || pos > this.length()){
-			System.err.println("Position Does Not Exsist");
+			System.err.println("Position Does Not Exist "+Integer.toString(pos));
 			System.exit(1); 
 	
 		}	
