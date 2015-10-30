@@ -74,5 +74,47 @@ public class Sequence extends Element{
 		
 	}
 	
+	public Element index(int pos){	
+		if(pos < 0 || pos >= this.length){
+			System.err.println("Position is out of boundary");
+			System.exit(1);	
+		}
+						
+		return this.seq.get(pos);
+		
+	}	
 	
+	public Sequence flatten(){
+
+	}
+
+	public Sequence copy(){ //produces deep copy of elements
+		Sequence newSequence = new Sequence(); //our new copy
+		int i = 0; //used to iterate thru
+		Sequence current = this;
+		//idea is to iterate thru the sequence and recursively copy stuff when needed. this function needs to be recursive
+		
+		while(current != null){
+			//selector for what type of element is created
+			Element newNode = null;
+			//use instance of to see what type of Element current is
+			if (current.getNode().data instanceof MyInteger){
+				MyInteger x = new MyInteger();
+				x.Set(((MyInteger)current.getNode().data).Get());
+				newNode = x;
+			}
+			else if (current.getNode().data instanceof MyChar){
+				 MyChar x = new MyChar();
+                                 x.Set(((MyChar)current.getNode().data).Get());      
+                                 newNode = x;		
+			}
+			else{		
+				newNode = ((Sequence)current.getNode()).copy(); //recursive call
+			}
+			newSequence.add(newNode, i);
+			i++;
+			current = current.next;
+		}
+	return newSequence;
+	}	
 }

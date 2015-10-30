@@ -83,11 +83,27 @@ public class Sequence extends Element{
 	}
 	
 	public void delete(int pos){
-			pos++;
-			this.seq.remove(pos);
-			length--; 
+		pos++;
+		this.seq.remove(pos);
+		length--; 
 		
 	}
 	
+	public Element index(int pos){
+		if (pos < 0 || pos >= this.length()){
+			System.err.println("Position is out of boundary");
+			System.exit(1);
+		}
+		else
+	
+	}
+
+	public Sequence flatten(){
+
+	}
+
+	public Sequence copy(){
+
+	}
 	
 }
