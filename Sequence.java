@@ -94,10 +94,10 @@ public class Sequence extends Element{
 		newSeq.length++;
 		int i = 0; //used to iterate thru
 		Node current = this.seq.getNode(0);
-		System.out.println(current.getData());
+		//System.out.println(current.getData());
 		//idea is to iterate thru the sequence and recursively copy stuff when needed. this function needs to be recursive
 		while(current.getNext() != null){
-			System.out.println(current.getData());
+			//System.out.println(current.getData());
 			if (current.getData() instanceof MyInteger){
 				Node newNode = new Node(current.getData()); 
 				newSeq.seq.add(newNode, i);
