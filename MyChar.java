@@ -1,5 +1,5 @@
 public class MyChar extends Element{
-	private char character;
+	public char character;
 	
 	public MyChar(){ //constructor
 		character = '0';

@@ -6,6 +6,7 @@ public class MyInteger extends Element{
 		integer = 0; 
 
 	}
+	
 
 	public int Get(){
 		return integer; 

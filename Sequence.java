@@ -85,36 +85,28 @@ public class Sequence extends Element{
 	}	
 	
 	public Sequence flatten(){
-
+		Sequence seq = new Sequence(); 
+		return seq; //need this for now
 	}
 
 	public Sequence copy(){ //produces deep copy of elements
-		Sequence newSequence = new Sequence(); //our new copy
+		Sequence newSeq = new Sequence(); //our new copy
 		int i = 0; //used to iterate thru
-		Sequence current = this;
+		Node current = this.seq.getNode(0);
 		//idea is to iterate thru the sequence and recursively copy stuff when needed. this function needs to be recursive
-		
-		while(current != null){
-			//selector for what type of element is created
-			Element newNode = null;
-			//use instance of to see what type of Element current is
-			if (current.getNode().data instanceof MyInteger){
-				MyInteger x = new MyInteger();
-				x.Set(((MyInteger)current.getNode().data).Get());
-				newNode = x;
+		while(current.getNext() != null){
+			if (current.getData() instanceof MyInteger){
+				Node newNode = new Node(current.getData()); 
+				newSeq.seq.add(newNode, i);
+				i++;
 			}
-			else if (current.getNode().data instanceof MyChar){
-				 MyChar x = new MyChar();
-                                 x.Set(((MyChar)current.getNode().data).Get());      
-                                 newNode = x;		
+			else if (current.getData() instanceof MyChar){
+                                 Node newNode = new Node(current.getData());		
+				newSeq.seq.add(newNode, i);
+				i++;
 			}
-			else{		
-				newNode = ((Sequence)current.getNode()).copy(); //recursive call
-			}
-			newSequence.add(newNode, i);
-			i++;
-			current = current.next;
+			current = current.getNext();
 		}
-	return newSequence;
+	return newSeq;
 	}	
 }

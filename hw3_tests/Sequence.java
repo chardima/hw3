@@ -95,7 +95,7 @@ public class Sequence extends Element{
 			System.exit(1);
 		}
 		else
-	
+			
 	}
 
 	public Sequence flatten(){
@@ -103,7 +103,17 @@ public class Sequence extends Element{
 	}
 
 	public Sequence copy(){
-
+		Sequence copy = new Sequence(); 
+		Node curr = this.seq.head;	
+		int counter = 0;  
+		while(curr.getNext() != null){
+			Node tmp = curr; 
+			copy.add(counter, cur);  			
+			counter++;
+			curr = curr.getNext()
+		}
+	
+		return copy
 	}
 	
 }

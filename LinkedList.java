@@ -59,6 +59,26 @@ public class LinkedList{
 			this.num++;	
 	}
 	
+	public void add(Node temp, int index){
+
+		Node curr = this.head;
+		if(index == 0){
+			curr.setNext(temp);
+		}//setting head
+		else{
+			//checks the index and the last node in the link 
+			for(int i = 1; i < index && curr.getNext() != null; i++){
+				curr = curr.getNext(); 
+			}
+			temp.setNext(curr.getNext());
+			curr.setNext(temp);
+		}
+			this.num++;	
+
+	}	
+
+
+	
 	public boolean remove(int index){
 		
 		if(index < 1 && index > this.num){
