@@ -25,8 +25,8 @@ public class test{
 		s.Print();
 		System.out.println();
 		Element e = s.first();
-		s.delete(1);
 		s.Print();
+		System.out.println(); 
 		e.Print();
 		System.out.println();
 		Sequence s2; 
@@ -36,10 +36,13 @@ public class test{
 		s.add(ch, 3);
 		System.out.print("s1:");
 		s.Print();
+		System.out.println();
 		System.out.print("\ns2:");
 		s2.Print(); 
 		System.out.println();
-
+		System.out.print("s1:");
+		s.Print();
+		System.out.println();
 
 /*
 		LinkedList l = new LinkedList(); 
@@ -58,7 +61,7 @@ public class test{
 *
 */
 		
-		System.out.print("s1:");
+		System.out.print("s:");
 		s.Print();
 		Sequence cpy = s.copy();
 		System.out.print("\nCopy:\t");
