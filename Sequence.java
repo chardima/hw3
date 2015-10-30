@@ -98,11 +98,13 @@ public class Sequence extends Element{
 			if (current.getData() instanceof MyInteger){
 				Node newNode = new Node(current.getData()); 
 				newSeq.seq.add(newNode, i);
+				newSeq.length++;	
 				i++;
 			}
 			else if (current.getData() instanceof MyChar){
                                  Node newNode = new Node(current.getData());		
 				newSeq.seq.add(newNode, i);
+				newSeq.length++;
 				i++;
 			}
 			current = current.getNext();

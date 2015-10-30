@@ -55,7 +55,15 @@ public class test{
 		l.Print();
 		l.add(j);
 		l.Print();
+*
 */
+		
+		System.out.print("s1:");
+		s.Print();
+		Sequence cpy = s.copy();
+		System.out.print("\nCopy:\t");
+		cpy.Print(); 
+		System.out.println(); 
 		System.out.println("\nEnd of Test\n"); 
 		return; 
 
