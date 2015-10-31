@@ -86,30 +86,45 @@ public class Sequence extends Element{
 
          public Sequence flatten(){
 
-                Sequence newSeq = new Sequence();/*
+                Sequence newSeq = new Sequence();
                 int i = 0;
-                Node current = this.seq.getNode(0);
+                Node current = this.seq.getNode(0); //get head node
 
-                while(current.getNext() != null){
+                while(current != null){
                         if (current.getData() instanceof MyInteger || current.getData() instanceof MyChar){
                                 Node newNode = new Node(current.getData());
                                 newSeq.seq.add(newNode, i);
                                 newSeq.length++;
                                 i++;
+				System.out.print("c/i ");
+				current = current.getNext();
                         }
-                        else{ //its a sequence
-                                Sequence deeper = this.seq.get(i).seq.flatten(); //recursively flatten new arising sequences
-                                while(deeper.seq.getNode(counter) != null) //add new flattened elements to the upper level of flatten
+                        else if(current.getData() instanceof Sequence){ //its a sequence
+				System.out.print("SEQ ");
+                                Sequence deeper = ((Sequence)(current.getData())).flatten(); //recursively flatten new arising sequences
+				Node deep_current = deeper.seq.getNode(0);//get head for deep
+                                while(deep_current != null) //add new flattened elements to the upper level of flatten
                                 {
-                                        Node newNode = new Node(deeper.seq.getNode(i).getData);
-                                        newSeq.seq.add(newNode, i);
-                                        newSeq.length++;
-                                        i++;
+                                        Node newNode = new Node(deep_current.getData());
+					if (deep_current.getData() instanceof MyInteger || deep_current.getData() instanceof MyChar){
+                                        	newSeq.seq.add(newNode, i);
+                                        	newSeq.length++;
+					//deep_current = deep_current.getNext();					
+                                        	i++;
+					}
+					deep_current = deep_current.getNext();
                                 }
+				//return newSeq;
+				current = current.getNext();
+				System.out.print("ENDSEQ ");
 
                         }
-			current = current.getNext();
-                }*/
+			else{
+
+				System.out.print("HEAD ");	
+			  	current = current.getNext();
+			}
+                }//while
 
                 return newSeq; //need this for now
         }

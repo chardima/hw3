@@ -84,6 +84,22 @@ public class test{
 		System.out.println(); 
 
 
+		//TESTING FLATTEN
+		System.out.println("\nTesting flatten, with sequence [6, '9'] in s1 index 2:\n");
+		Sequence inner = new Sequence();
+		MyInteger in1 = new MyInteger();
+		in1.Set(6);
+		MyChar co = new MyChar();
+		co.Set('9');
+		inner.add(in1, 0);
+		inner.add(co, 1);
+		//inner.Print();
+		s.add(inner, 2);	
+		System.out.print("s1:");
+		s.Print();
+		s2 = s.flatten();
+		System.out.print("\ns2:");
+		s2.Print();
 
 
 
