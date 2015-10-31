@@ -79,6 +79,7 @@ public class Sequence extends Element{
 			System.err.println("Position is out of boundary");
 			System.exit(1);	
 		}
+		pos++;
 						
 		return this.seq.get(pos);
 		

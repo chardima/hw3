@@ -115,6 +115,12 @@ public class test{
 		System.out.print("\ns2:");
 		s2.Print();
 
+		System.out.println("\n\nTesting index, shoult print out index 2");
+		//MyChar ko = new MyChar();
+		//ko = 
+		s.index(2).Print();
+		//ko.Print();
+
 
 		System.out.println("\n\nEnd of Test"); 
 		return; 
