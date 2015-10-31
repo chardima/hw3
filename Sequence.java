@@ -83,11 +83,37 @@ public class Sequence extends Element{
 		return this.seq.get(pos);
 		
 	}	
+
+         public Sequence flatten(){
+                Sequence newSeq = new Sequence();
+                int i = 0;
+                Node current = this.seq.getNode(0);
+
+                while(current.getNext() != null){
+                        if (current.getData() instanceof MyInteger || current.getData() instanceof MyChar){
+                                Node newNode = new Node(current.getData());
+                                newSeq.seq.add(newNode, i);
+                                newSeq.length++;
+                                i++;
+                        }
+                        else{ //its a sequence
+                                Sequence deeper = this.seq.get(i).seq.flatten(); //recursively flatten new arising sequences
+                                while(deeper.seq.getNode(counter) != null) //add new flattened elements to the upper level of flatten
+                                {
+                                        Node newNode = new Node(deeper.seq.getNode(i).getData);
+                                        newSeq.seq.add(newNode, i);
+                                        newSeq.length++;
+                                        i++;
+                                }
+
+                        }
+			current = current.getNext();
+                }
+
+                return newSeq; //need this for now
+        }
+
 	
-	public Sequence flatten(){
-		Sequence seq = new Sequence(); 
-		return seq; //need this for now
-	}
 
 	public Sequence copy(){ //produces deep copy of elements
 		Sequence newSeq = new Sequence(); //our new copy
