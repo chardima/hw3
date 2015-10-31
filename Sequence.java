@@ -96,11 +96,12 @@ public class Sequence extends Element{
                                 newSeq.seq.add(newNode, i);
                                 newSeq.length++;
                                 i++;
-				System.out.print("c/i ");
+				//current.getData().Print();
+				//System.out.print(" ");
 				current = current.getNext();
                         }
                         else if(current.getData() instanceof Sequence){ //its a sequence
-				System.out.print("SEQ ");
+				//System.out.print("SEQ ");
                                 Sequence deeper = ((Sequence)(current.getData())).flatten(); //recursively flatten new arising sequences
 				Node deep_current = deeper.seq.getNode(0);//get head for deep
                                 while(deep_current != null) //add new flattened elements to the upper level of flatten
@@ -108,6 +109,8 @@ public class Sequence extends Element{
                                         Node newNode = new Node(deep_current.getData());
 					if (deep_current.getData() instanceof MyInteger || deep_current.getData() instanceof MyChar){
                                         	newSeq.seq.add(newNode, i);
+						//System.out.println("\n adding at " + i);
+						//deep_current.getData().Print();
                                         	newSeq.length++;
 					//deep_current = deep_current.getNext();					
                                         	i++;
@@ -116,13 +119,14 @@ public class Sequence extends Element{
                                 }
 				//return newSeq;
 				current = current.getNext();
-				System.out.print("ENDSEQ ");
+				//System.out.print("ENDSEQ ");
 
                         }
 			else{
 
-				System.out.print("HEAD ");	
+				//System.out.print("HEAD ");	
 			  	current = current.getNext();
+				i++;
 			}
                 }//while
 
