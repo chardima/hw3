@@ -85,7 +85,8 @@ public class Sequence extends Element{
 	}	
 
          public Sequence flatten(){
-                Sequence newSeq = new Sequence();
+
+                Sequence newSeq = new Sequence();/*
                 int i = 0;
                 Node current = this.seq.getNode(0);
 
@@ -108,7 +109,7 @@ public class Sequence extends Element{
 
                         }
 			current = current.getNext();
-                }
+                }*/
 
                 return newSeq; //need this for now
         }
@@ -117,27 +118,30 @@ public class Sequence extends Element{
 
 	public Sequence copy(){ //produces deep copy of elements
 		Sequence newSeq = new Sequence(); //our new copy
-		newSeq.length++;
+		//newSeq.length++;
 		int i = 0; //used to iterate thru
-		Node current = this.seq.getNode(0);
+		Node current = this.seq.getNode(0); //get head node
 		//System.out.println(current.getData());
 		//idea is to iterate thru the sequence and recursively copy stuff when needed. this function needs to be recursive
-		while(current.getNext() != null){
+		while(current != null){
 			//System.out.println(current.getData());
 			if (current.getData() instanceof MyInteger){
+				//System.out.println(" INT:");
 				Node newNode = new Node(current.getData()); 
 				newSeq.seq.add(newNode, i);
 				newSeq.length++;	
-				i++;
+				//i++;
 			}
 			else if (current.getData() instanceof MyChar){
-                                 Node newNode = new Node(current.getData());		
+				//System.out.println(" CHAR:");
+                                Node newNode = new Node(current.getData());		
 				newSeq.seq.add(newNode, i);
 				newSeq.length++;
-				i++;
+				//i++;
 			}
+			i++;
 			current = current.getNext();
 		}
-	return newSeq;
+		return newSeq;
 	}	
 }
