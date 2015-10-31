@@ -11,33 +11,53 @@ public class test{
 		ch2.Set('g'); 
 		s = new Sequence();
 		s.add(ch, 0);
-		s.Print(); 
-		System.out.println();
+		//s.Print(); 
+		//System.out.println();
 		s.add(in, 1);
-		s.Print();
-		System.out.println();
+		//s.Print();
+		//System.out.println();
 		s.add(ch2, 1);
-		s.Print();
-		System.out.println();
+		//s.Print();
+		//System.out.println();
 		MyInteger f = new MyInteger();
 		f.Set(99); 
 		s.add(f, 1);
+		//s.Print();
+		//System.out.println();
+		Element e = s.first();
+		//s.Print();
+		//System.out.println(); 
+		//e.Print();
+		//System.out.println('\n');
+
+	
+		
+		System.out.print("Starting s1 and s2:\ns1:");
 		s.Print();
 		System.out.println();
-		Element e = s.first();
-		e.Print();
-		System.out.println();
-		Sequence s2; 
+
+
+		//TESTING REST
+		//make s2 = s.rest
+		Sequence s2;
 		s2 = s.rest();
+		System.out.print("s2:");
 		s2.Print();
-		System.out.println("\nAdding h at pos s1[3]"); 
+		System.out.println("\n");
+
+
+		System.out.println("Adding h at pos s1[3]"); 
 		s.add(ch, 3);
 		System.out.print("s1:");
 		s.Print();
-		System.out.print("\ns2:");
+		System.out.println();
+		System.out.print("s2:");
 		s2.Print(); 
 		System.out.println();
-
+		//System.out.println();
+		//System.out.print("s1:");
+		//s.Print();
+		//System.out.println();
 
 /*
 		LinkedList l = new LinkedList(); 
@@ -53,8 +73,56 @@ public class test{
 		l.Print();
 		l.add(j);
 		l.Print();
+*
 */
-		System.out.println("\nEnd of Test\n"); 
+		//TESTING COPY		
+		System.out.print("\nTesting copy\ns1:");
+		s.Print();
+		Sequence cpy = s.copy();
+		System.out.print("\nCopy:");
+		cpy.Print(); 
+		System.out.println(); 
+
+
+		//TESTING FLATTEN
+		System.out.println("\nTesting flatten, with sequence [6, '9'] in s1 index 2:");
+		Sequence inner = new Sequence();
+		MyInteger in1 = new MyInteger();
+		in1.Set(6);
+		MyChar co = new MyChar();
+		co.Set('9');
+		inner.add(in1, 0);
+		inner.add(co, 1);
+		//inner.Print();
+		s.add(inner, 2);	
+		System.out.print("s1:");
+		s.Print();
+		s2 = s.flatten();
+		System.out.print("\ns2:");
+		s2.Print();
+
+		System.out.println("\n\nTesting flatten with sequence [6, '9', [420] ]");
+		Sequence inner2 = new Sequence();
+		MyInteger blaze = new MyInteger();
+		blaze.Set(420);
+		inner2.add(blaze,0);
+		inner.add(inner2, 1);
+		//inner.Print();	
+		//s.add(inner, 2);
+		System.out.print("s1:");
+		s.Print();
+		s2 = s.flatten();
+		System.out.print("\ns2:");
+		s2.Print();
+
+		System.out.println("\n\nTesting index, shoult print out index 2");
+		//MyChar ko = new MyChar();
+		//ko = 
+		s.index(2).Print();
+		//ko.Print();
+
+
+		System.out.println("\n\nEnd of Test"); 
 		return; 
 
 	}

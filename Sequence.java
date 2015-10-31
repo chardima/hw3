@@ -45,7 +45,14 @@ public class Sequence extends Element{
 	}
 	
 	public int length(){
+		int count = -1;
+		Node curr = this.seq.getNode(0);//head
+		while(curr != null){
+			count++;
+			curr = curr.getNext();
+		}
 		
+		this.length = count;
 			return this.length; 
 	
 	}
