@@ -166,6 +166,26 @@ public class Sequence extends Element{
 				newSeq.length++;
 				//i++;
 			}
+			else if(current.getData() instanceof Sequence){
+				Sequence cpy = ((Sequence)current.getData()).copy(); //recursive copy
+				Sequence temp = new Sequence();
+				Node deep_current = cpy.seq.getNode(0);//get head
+				while(deep_current!=null){
+					Node newNode = new Node(deep_current.getData());;	
+					//newNode.getData().Print();
+					//System.out.println();
+					temp.seq.add(newNode, temp.length());
+
+					deep_current = deep_current.getNext();
+				}
+				//System.out.print("temp:");
+//				temp.Print();
+				//System.out.println();
+				newSeq.seq.add(temp,i);
+				newSeq.length++;
+				//System.out.println("SEQ");
+			}//is a sequence
+			
 			i++;
 			current = current.getNext();
 		}
