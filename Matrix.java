@@ -63,41 +63,27 @@ public class Matrix extends Sequence {
 	}
 
 	public Matrix Product(Matrix mat){
-		if(mat.colsize != this.rowsize){
+	//this = A, mat = B
+		if(this.colsize != mat.rowsize){
 		System.err.print("m1 * m2 = Matrix dimensions incompatible for Product");
+		System.exit(1);
 		}
 
-		SequenceIterator a_row = mat.begin();
-		SequenceIterator b_row = this.begin();
-		SequenceIterator a_col = ((Sequence) a_row.get()).begin(); //inner sequence
-		SequenceIterator b_col = ((Sequence) b_row.get()).begin(); //inner sequence	
-
-		Matrix product = new Matrix(mat.rowsize, this.colsize);
+		Matrix product = new Matrix(this.rowsize, mat.colsize);
+		int tempProduct = 0;
+		int productSum = 0;
 		
-		int buffer = 0;
-			int temp = 0;
-		while(b_col != null){
-
-			while(a_col != null){	
-
-				//MyInteger a = a_col.Get(); a_col and b_col do not have .Get() or at least not like this look at the seqitr java class!!!! 
-				//MyInteger b = b_col.Get();
-				//temp = temp + a * b;
-			
-				a_col.advance();
-				b_row.advance();
-
-			}
-			//product.Set(i, j, temp);
-
-			a_col.begin();
-			b_row.begin();
-	
-	
-			b_col.advance();	
-		}
-				
-
+		for(int i = 0; i < product.rowsize ; i++){
+			for( int j = 0; j < product.colsize; j++){
+				for(int k = 0; k < this.colsize; k++{
+					tempProduct = this.Get(i, k) * mat.Get(k, j);
+					productSum = productSum + tempProduct;
+					tempProduct = 0; //reset product for next dot product step
+				}//end for
+				product.Set(i, j, sum); 
+				productSum = 0; //reset product Sum for next multiplication 
+			}//end for
+		}//end for
 		return product;
 	}
 
