@@ -6,25 +6,23 @@ public class Matrix extends Sequence {
 	public Matrix(int rowsize, int colsize){
 		this.rowsize = rowsize;
 		this.colsize = colsize;
-		
+		MyInteger empty = new MyInteger();
+		empty.Set(0);		
 		for(int i = 0; i < rowsize; i++){
 			Sequence col_matrix = new Sequence();
 			for(int j = 0; j < colsize; j++){
-				col_matrix.add(null, j);
+				col_matrix.add(empty, j);
 			}//cols	
 			this.seq.add(col_matrix, i);
 		}//rows
 	}
 	
 	public void Set(int rowsize, int colsize, int value){ 
-		
-		Node cur = this.seq.getNode(rowsize);//get sequence at row
-
-		MyInteger i = new MyInteger();//create Integer
-		i.Set(value); //set value
-
-		((Sequence)this.seq.get(rowsize)).delete(colsize); //delete current int at pos
-		((Sequence)this.seq.get(rowsize)).add(i, colsize); //replace int 
+		MyInteger i = new MyInteger();
+		i.Set(value);
+		Sequence row = (Sequence)this.seq.get(rowsize); 
+		row.add(i, colsize);
+				
 			
 	}
 	
@@ -77,19 +75,19 @@ public class Matrix extends Sequence {
 		
 		int buffer = 0;
 			int temp = 0;
-		while{
+		while(b_col != null){
 
 			while(a_col != null){	
 
-				MyInteger a = a_col.Get();
-				MyInteger b = b_col.Get();
-				temp = temp + a * b;
+				//MyInteger a = a_col.Get(); a_col and b_col do not have .Get() or at least not like this look at the seqitr java class!!!! 
+				//MyInteger b = b_col.Get();
+				//temp = temp + a * b;
 			
 				a_col.advance();
 				b_row.advance();
 
 			}
-			product.Set(i, j, temp);
+			//product.Set(i, j, temp);
 
 			a_col.begin();
 			b_row.begin();
