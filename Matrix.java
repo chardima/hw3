@@ -1,5 +1,7 @@
 public class Matrix extends Sequence{
 
+	
+
 	public Matrix(int rowsize, int colsize){}
 	
 	public void Set(int rowsize, int colsize){}
@@ -10,6 +12,19 @@ public class Matrix extends Sequence{
 
 	public Matrix Product(Matrix mat){}
 
-	public void Print(){}
+	public void Print(){
+		System.out.print("[ ");
+		int rowcounter = 1;
+		int colcounter = 1; 
+		Node curr = this.seq.getNode(rowcounter);
+		while( ) //column
+			while(curr != null){ //row
+				curr.getData().Print();
+				System.out.print(" ");
+				curr = curr.getNext();
+			}
+			System.out.print("]");
+		}
+	}
 
 }
