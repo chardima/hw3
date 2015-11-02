@@ -62,25 +62,29 @@ public class Matrix extends Sequence {
 	return sum; 
 
 	}
+
+	public Matrix Product(Matrix mat){
+		if(mat.colsize != this.rowsize){
+		System.err.print("m1 * m2 = Matrix dimensions incompatible for Product");
+		}
+
+		SequenceIterator a_row = mat.begin();
+		SequenceIterator b_col = this.begin();
+		Matrix Product = new Matrix(mat.rowsize, this.colsize);
+			
+	}
+
 	public int Get(int rowsize, int colsize){
 		return ( (MyInteger)( ((Sequence)this.seq.get(rowsize)).seq.getNode(colsize) ).getData() ).Get();	
 	}
 	
-	public Matrix Product(Matrix mat){}
 
 	public void Print(){
-		System.out.print("[ ");
-		int rowcounter = 1;
-		int colcounter = 1; 
-		Node curr = this.seq.getNode(rowcounter);
-		/*while( ) //column
-			while(curr != null){ //row
-				curr.getData().Print();
-				System.out.print(" ");
-				curr = curr.getNext();
-			}
-			System.out.print("]");
-		}*/
+		Node curr = this.seq.getNode(1);
+		while(curr != null){
+			curr.getData().Print();
+			System.out.Print("\n");
+			curr = curr.getNext();
+		}
 	}
-
 }
