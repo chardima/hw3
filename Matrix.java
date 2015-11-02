@@ -7,9 +7,9 @@ public class Matrix extends Sequence {
 		this.rowsize = rowsize;
 		this.colsize = colsize;
 		
-		for(int i = 1; i <= rowsize; i++){
+		for(int i = 0; i < rowsize; i++){
 			Sequence col_matrix = new Sequence();
-			for(int j = 1; j <= colsize; j++){
+			for(int j = 0; j < colsize; j++){
 				col_matrix.add(null, j);
 			}//cols	
 			this.seq.add(col_matrix, i);
@@ -29,11 +29,11 @@ public class Matrix extends Sequence {
 	}
 	
 	//A + B = C(sum)
-	public Matrix Sum(matrix mat){
+	public Matrix Sum(Matrix mat){
 		//this = A and B = mat
 		//matrix is a linkedlist of sequences
 		SequenceIterator a_row = this.begin(); //start at row 0
-		SequenceIterator b_row() = mat.begin();
+		SequenceIterator b_row = mat.begin();
 	
 		SequenceIterator a_col = ((Sequence) a_row.get()).begin(); //returns the node or inner sequence  
 		SequenceIterator b_col = ((Sequence) b_row.get()).begin(); //returns the node or inner sequence
@@ -45,7 +45,8 @@ public class Matrix extends Sequence {
 			while(a_col != null || b_col != null){
 				MyInteger a = (MyInteger) a_col.get();
 				MyInteger b = (MyInteger) b_col.get();
-				MyInteger c = new MyInteger( a.Get() + b.Get());
+				MyInteger c = new MyInteger();
+				c.Set(a.Get() + b.Get());
 				sum.Set(row, col, c.Get());
 				col++;
 				b_col = b_col.advance();
@@ -110,7 +111,7 @@ public class Matrix extends Sequence {
 		Node curr = this.seq.getNode(1);
 		while(curr != null){
 			curr.getData().Print();
-			System.out.Print("\n");
+			System.out.println();
 			curr = curr.getNext();
 		}
 	}
