@@ -45,9 +45,8 @@ public class Matrix extends Sequence {
 			while(a_col != null || b_col != null){
 				MyInteger a = (MyInteger) a_col.get();
 				MyInteger b = (MyInteger) b_col.get();
-				int tmp = a.Get() + b.Get();
 				MyInteger c = new MyInteger();
-				c.Set(tmp);
+				c.Set(a.Get() + b.Get());
 				sum.Set(row, col, c.Get());
 				col++;
 				b_col = b_col.advance();
@@ -71,8 +70,8 @@ public class Matrix extends Sequence {
 
 		SequenceIterator a_row = mat.begin();
 		SequenceIterator b_col = this.begin();
-		Matrix Product = new Matrix(mat.rowsize, this.colsize);
-		return Product;		
+		Matrix product = new Matrix(mat.rowsize, this.colsize);
+		return product;		
 	}
 
 	public int Get(int rowsize, int colsize){
