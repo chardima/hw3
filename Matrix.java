@@ -75,12 +75,12 @@ public class Matrix extends Sequence {
 		
 		for(int i = 0; i < product.rowsize ; i++){
 			for( int j = 0; j < product.colsize; j++){
-				for(int k = 0; k < this.colsize; k++{
+				for(int k = 0; k < this.colsize; k++){
 					tempProduct = this.Get(i, k) * mat.Get(k, j);
 					productSum = productSum + tempProduct;
 					tempProduct = 0; //reset product for next dot product step
 				}//end for
-				product.Set(i, j, sum); 
+				product.Set(i, j, productSum); 
 				productSum = 0; //reset product Sum for next multiplication 
 			}//end for
 		}//end for
