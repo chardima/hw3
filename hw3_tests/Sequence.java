@@ -179,28 +179,23 @@ public class Sequence extends Element{
 				//i++;
 			}
 			else if(current.getData() instanceof Sequence){
-				Sequence cpy = ((Sequence)current.getData()).copy(); //recursive copy
-				Sequence temp = new Sequence();
-				Node deep_current = cpy.seq.getNode(0);//get head
-				while(deep_current!=null){
-					Node newNode = new Node(deep_current.getData());;	
-					//newNode.getData().Print();
-					//System.out.println();
-					temp.seq.add(newNode, temp.length());
-
-					deep_current = deep_current.getNext();
-				}
-				//System.out.print("temp:");
-//				temp.Print();
-				//System.out.println();
-				newSeq.seq.add(temp,i);
-				newSeq.length++;
-				//System.out.println("SEQ");
-			}//is a sequence
+					Sequence cpy = new Sequence();
+				 	Sequence s = ((Sequence)current.getData()).copy();//creates a shallow copy for me to do easier referencing
+					Node c = s.seq.getNode(0);
+					while(c != null){
+						Node n = new Node(c.getData());
+						cpy.seq.add(n,cpy.length);
+						cpy.length++;
+						c = c.getNext(); 
+					} 	
+					//cpy  = add(((Sequence)current.getData()).copy(), 0); //recursive copy
+					newSeq.seq.add(cpy,i);
+					newSeq.length++;
+			}
 			
 			i++;
 			current = current.getNext();
-		}
+		}//end of while loop
 		return newSeq;
 	}	
 }

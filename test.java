@@ -1,6 +1,13 @@
 public class test{
 
 	public static  void main(String args[]){
+		Sequence deep = new Sequence(); 
+		MyChar h = new MyChar();
+		MyInteger n = new MyInteger();
+		h.Set('a');
+		n.Set(100);
+		deep.add(n,0);
+		deep.add(h,1);
 		MyChar ch = new MyChar(); 
 		MyInteger in; 
 		Sequence s;
@@ -47,7 +54,7 @@ public class test{
 
 
 		System.out.println("Adding h at pos s1[3]"); 
-		s.add(ch, 3);
+		s.add(deep, 3);
 		System.out.print("s1:");
 		s.Print();
 		System.out.println();
