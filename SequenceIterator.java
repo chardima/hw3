@@ -24,5 +24,4 @@ class SequenceIterator extends Sequence {
 			return false;
 		}
 	}
-
 }
