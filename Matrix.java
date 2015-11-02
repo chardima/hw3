@@ -68,9 +68,37 @@ public class Matrix extends Sequence {
 		}
 
 		SequenceIterator a_row = mat.begin();
-		SequenceIterator b_col = this.begin();
-		Matrix Product = new Matrix(mat.rowsize, this.colsize);
+		SequenceIterator b_row = this.begin();
+		SequenceIterator a_col = ((Sequence) a_row.get()).begin(); //inner sequence
+		SequenceIterator b_col = ((Sequence) b_row.get()).begin(); //inner sequence	
+
+		Matrix product = new Matrix(mat.rowsize, this.colsize);
+		
+		int buffer = 0;
+			int temp = 0;
+		while{
+
+			while(a_col != null){	
+
+				MyInteger a = a_col.Get();
+				MyInteger b = b_col.Get();
+				temp = temp + a * b;
 			
+				a_col.advance();
+				b_row.advance();
+
+			}
+			product.Set(i, j, temp);
+
+			a_col.begin();
+			b_row.begin();
+	
+	
+			b_col.advance();	
+		}
+				
+
+		return product;
 	}
 
 	public int Get(int rowsize, int colsize){
