@@ -27,21 +27,25 @@ public class Matrix extends Sequence{
 	
 	public Matrix Sum(matrix mat){}
 
-	public Matrix Product(Matrix mat){}
+	public Matrix Product(Matrix mat){
+		if(mat.colsize != this.rowsize){
+		System.err.print("m1 * m2 = Matrix dimensions incompatible for Product");
+		}
 
-	public void Print(){
-		System.out.print("[ ");
-		int rowcounter = 1;
-		int colcounter = 1; 
-		Node curr = this.seq.getNode(rowcounter);
-		while( ) //column
-			while(curr != null){ //row
-				curr.getData().Print();
-				System.out.print(" ");
-				curr = curr.getNext();
-			}
-			System.out.print("]");
+		SequenceIterator a_row = mat.begin();
+		SequenceIterator b_col = this.begin();
+		Matrix Product = new Matrix(mat.rowsize, this.colsize);
+			
+		
 		}
 	}
 
+	public void Print(){
+		Node curr = this.seq.getNode(1);
+		while(curr != null){
+			curr.getData().Print();
+			System.out.Print("\n");
+			curr = curr.getNext();
+		}
+	}
 }
