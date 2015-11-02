@@ -139,11 +139,11 @@ public class test{
 		//TESTINTG PART 5
 		System.out.println("\n\nTesting Matrices");
 		System.out.print("m1:");
-		Matrix m1 = new Matrix(3,3);
-		for(int i = 0; i < 3; i++){
+		Matrix m1 = new Matrix(2,2);
+		for(int i = 0; i < 2; i++){
 			for(int j = 0; j < 2; j++){
 				m1.Set(i,j,i);	
-			}
+			}//cols
 		}//set rows
 		m1.Print();//print m1
 

@@ -7,9 +7,9 @@ public class Matrix extends Sequence {
 		this.rowsize = rowsize;
 		this.colsize = colsize;
 		
-		for(int i = 1; i <= rowsize; i++){
+		for(int i = 0; i < rowsize; i++){
 			Sequence col_matrix = new Sequence();
-			for(int j = 1; j <= colsize; j++){
+			for(int j = 0; j < colsize; j++){
 				col_matrix.add(null, j);
 			}//cols	
 			this.seq.add(col_matrix, i);
