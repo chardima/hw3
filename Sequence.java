@@ -22,7 +22,7 @@ public class Sequence extends Element{
 		return beg;
 	}
 	public SequenceIterator end(){
-		SequenceIterator end = new SequenceIterator(this.seq.getNode(this.seq.length()+1));
+		SequenceIterator end = new SequenceIterator(this.seq.getNode(this.seq.length()+1).getNext());
 		return end;
 	}
 	
