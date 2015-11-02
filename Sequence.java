@@ -1,6 +1,6 @@
 public class Sequence extends Element{
 
-	private LinkedList seq; 
+	public LinkedList seq; 
 	public int length;
 
 	public Sequence(){
