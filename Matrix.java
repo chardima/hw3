@@ -20,7 +20,8 @@ public class Matrix extends Sequence {
 	public void Set(int rowsize, int colsize, int value){ 
 		MyInteger i = new MyInteger();
 		i.Set(value);
-		Sequence row = (Sequence)this.seq.get(rowsize); 
+		Sequence row = (Sequence)this.seq.get(rowsize+1); //when dealing with this.seq remember +1 index
+		row.delete(colsize);
 		row.add(i, colsize);
 				
 			
