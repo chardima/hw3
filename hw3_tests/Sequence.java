@@ -13,6 +13,18 @@ public class Sequence extends Element{
 		length = seq.length(); 
 
 	}
+
+
+	//PART 4
+	public SequenceIterator begin(){
+		SequenceIterator beg = new SequenceIterator(this.seq.getNode(1));
+
+		return beg;
+	}
+	public SequenceIterator end(){
+		SequenceIterator end = new SequenceIterator(this.seq.getNode(this.seq.length()+1));
+		return end;
+	}
 	
 	public void Print(){
 		System.out.print("[ "); 

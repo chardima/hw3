@@ -120,6 +120,22 @@ public class test{
 		//ko = 
 		s.index(2).Print();
 		//ko.Print();
+		
+		
+
+
+
+		//TESTING Part 4
+		System.out.println("\n\nTesting Iterator for s1");
+		System.out.print("s1:");
+		s.Print();
+		System.out.print("\nIterating:");
+		SequenceIterator it; //create iterator
+		
+		for(it = s.begin(); !it.equal(s.end()); it.advance()){
+			(it.get()).Print();
+		}
+
 
 
 		System.out.println("\n\nEnd of Test"); 
