@@ -70,8 +70,8 @@ public class Matrix extends Sequence {
 
 		SequenceIterator a_row = mat.begin();
 		SequenceIterator b_col = this.begin();
-		Matrix Product = new Matrix(mat.rowsize, this.colsize);
-			
+		Matrix product = new Matrix(mat.rowsize, this.colsize);
+		return product;		
 	}
 
 	public int Get(int rowsize, int colsize){
@@ -83,7 +83,7 @@ public class Matrix extends Sequence {
 		Node curr = this.seq.getNode(1);
 		while(curr != null){
 			curr.getData().Print();
-			System.out.Print("\n");
+			System.out.println();
 			curr = curr.getNext();
 		}
 	}
