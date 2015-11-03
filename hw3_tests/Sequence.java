@@ -1,6 +1,6 @@
 public class Sequence extends Element{
 
-	private LinkedList seq; 
+	public LinkedList seq; 
 	public int length;
 
 	public Sequence(){
@@ -166,9 +166,9 @@ public class Sequence extends Element{
 			//System.out.println(current.getData());
 			if (current.getData() instanceof MyInteger){
 				//System.out.println(" INT:");
-				MyInteger j = new MyInteger(); 
-				j.Set(((MyInteger)current.getData()).Get());
-				Node newNode = new Node(j); 
+				MyInteger t = new MyInteger(); 
+				t.Set(((MyInteger)current.getData()).Get());
+				Node newNode = new Node(t); 
 				newSeq.seq.add(newNode, i);
 				newSeq.length++;	
 				//i++;
@@ -184,7 +184,7 @@ public class Sequence extends Element{
 			}
 			else if(current.getData() instanceof Sequence){
 					Sequence cpy = new Sequence();
-				 	cpy = ((Sequence)current.getData()).copy();//creates a shallow copy for me to do easier referencing
+					cpy = (((Sequence)current.getData()).copy());
 					//cpy  = add(((Sequence)current.getData()).copy(), 0); //recursive copy
 					newSeq.seq.add(cpy,i);
 					newSeq.length++;
