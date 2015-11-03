@@ -30,7 +30,7 @@ SequenceIterator.class: Sequence.class
 Matrix.class: Sequence.class
 	$(JCC) Matrix.java
 
-Map.class: MapIterator.class Sequence.class Pair.class
+Map.class: MapIterator.class LinkedList.class Node.class Pair.class
 	$(JCC) Map.java
 
 MapIterator.class: 

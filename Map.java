@@ -1,5 +1,6 @@
-class Map extends Sequence{
-
+class Map {
+	public LinkedList seq; 
+	public int length;
 	public Map(){
 		this.seq = new LinkedList();
 		this.length = 0;		
@@ -25,7 +26,16 @@ class Map extends Sequence{
 	}
 
 	public MapIterator find(MyChar key){
-		
+		MapIterator itr = this.begin();
+		char k = key.Get();
+		while(itr != null){
+			char check = (((MyChar)itr.get()).Get());
+			if(k == check){
+				return itr;
+			}
+			itr = itr.advance(); 
+		}
+		return itr; 
 	}
 
 	public MapIterator begin(){
