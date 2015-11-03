@@ -75,14 +75,49 @@ public class Matrix extends Sequence {
 	return sum; 
 
 	}
-
+	//A * B = C
 	public Matrix Product(Matrix mat){
 	//this = A, mat = B
 		if(this.colsize != mat.rowsize){
 		System.err.print("m1 * m2 = Matrix dimensions incompatible for Product");
 		System.exit(1);
 		}
+		this.Print();
+		mat.Print();
+		Matrix p = new Matrix(this.rowsize, mat.colsize);
+		SequenceIterator a_row = this.begin(); //start at row 0
+		SequenceIterator b_row = mat.begin();
+		SequenceIterator b_col = ((Sequence) b_row.get()).begin(); //returns the node or inner sequence
+		SequenceIterator a_col = ((Sequence) a_row.get()).begin();
+		//take the row of A and combine it with the column of b
+		int r  = 0;
+		int c = 0;
+		while(a_row != null){
+			p.Print();
+			int sum = 0;
+			for(int row = 0; row < this.rowsize; row++){
+				for(int col = 0; col < mat.colsize ; col++){		
+					int product = a * b;
+					System.out.println(product);
+					sum += 	product;
+					a_row.advance(); 
+					b_col.advance();
+				}
+				a_col.advance();
+				b_row.advance();
+			}
+			p.Set(r, c, sum);
+			r++; c++;
+			p.Print();
+			a_row = a_row.advance();	
+		}
+		return p;	
+	     	
+	
 
+
+	
+/*
 		Matrix product = new Matrix(this.rowsize, mat.colsize);
 		int productSum = 0;
 		
@@ -98,10 +133,12 @@ public class Matrix extends Sequence {
 			}//end for
 		}//end for
 		return product;
+*/
 	}
 
 	public int Get(int rowsize, int colsize){
-		return ( (MyInteger)( ((Sequence)this.seq.get(rowsize)).seq.getNode(colsize) ).getData() ).Get();	}
+		return ( (MyInteger)( ((Sequence)this.seq.get(rowsize)).seq.getNode(colsize) ).getData() ).Get();	
+	}
 	
 
 	public void Print(){
