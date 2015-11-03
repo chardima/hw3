@@ -9,10 +9,21 @@ class Pair extends Element{
 
 	}
 
+	Public MyChar getKey(){	
+		
+
+		return this.key
+
+
+
+	}
+
 	public void Print(){
 		System.out.print("( " +"\'" + key + "\' ");
 		value.Print();
 		System.out.print(" )");  
 
 	}
+
+		
 }

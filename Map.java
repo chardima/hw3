@@ -9,9 +9,19 @@ class Map extends Sequence{
 
 	//need to  change by actually checking and putting it in order
 	public void add(Pair inval){
-		Node cur = this.seq.get(0);	
+		int counter = 0;
+		Node curr = this.seq.getNode(0);
+		char check = ((MyChar) curr.getData()).Get(); 
+		char key = ((MyChar) inval.getKey()).Get(); 
+		while(curr != null ||  key != check){
+			check = ((MyChar) curr.getData()).Get(); 
+			curr = curr.getNext();
+			counter++;
+			
+		}
+	
 		Node n  = new Node(inval); 
-		this.seq.add(n, this.length);
+		this.seq.add(n, counter);
 		length++;
 
 	}
