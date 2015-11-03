@@ -33,17 +33,31 @@ public class Matrix extends Sequence {
 		//matrix is a linkedlist of sequences
 		SequenceIterator a_row = this.begin(); //start at row 0
 		SequenceIterator b_row = mat.begin();
-	
-		SequenceIterator a_col = ((Sequence) a_row.get()).begin(); //returns the node or inner sequence  
-		SequenceIterator b_col = ((Sequence) b_row.get()).begin(); //returns the node or inner sequence
 		Matrix sum = new Matrix(this.rowsize, this.colsize); //the sum of matrix
-	        //for each row and column need to add the element and set them to each other
-		int row = 0; 
-		while(a_row != null || b_row != null){
-			int col = 0;
-			while(a_col != null || b_col != null){
+		for(int row = 0; row < this.rowsize ; row++){
+			SequenceIterator b_col = ((Sequence) b_row.get()).begin(); //returns the node or inner sequence
+			SequenceIterator a_col = ((Sequence) a_row.get()).begin();
+			for(int col = 0; col < this.colsize ; col++){
 				MyInteger a = (MyInteger) a_col.get();
-				MyInteger b = (MyInteger) b_col.get();
+				MyInteger b =  (MyInteger) b_col.get();
+				MyInteger c = new MyInteger();
+				c.Set(a.Get() + b.Get());
+				sum.Set(row, col, c.Get());
+			//	sum.Print();
+				a_col.advance();
+				b_col.advance();
+			}
+			a_row.advance();	
+			b_row.advance();
+		}
+		/*int row = 0; 
+		while(a_row != null && b_row != null){
+			System.out.println("Going through the rows");
+			int col = 0;
+			while(a_col != null ||  b_col != null && col < this.colsize){
+				System.out.println("Going through the cols");
+				MyInteger a = (MyInteger) a_col.get();
+				MyInteger b =  (MyInteger) b_col.get();
 				MyInteger c = new MyInteger();
 				c.Set(a.Get() + b.Get());
 				sum.Set(row, col, c.Get());
@@ -56,7 +70,7 @@ public class Matrix extends Sequence {
 			b_row = b_row.advance();  
 			 
 		}
-				
+		*/		
 
 	return sum; 
 
@@ -70,7 +84,6 @@ public class Matrix extends Sequence {
 		}
 
 		Matrix product = new Matrix(this.rowsize, mat.colsize);
-//		int tempProduct = 0;
 		int productSum = 0;
 		
 		for(int i = 0; i < product.rowsize ; i++){
