@@ -79,25 +79,23 @@ public class Matrix extends Sequence {
 	public Matrix Product(Matrix mat){
 	//this = A, mat = B
 		if(this.colsize != mat.rowsize){
-		System.err.print("m1 * m2 = Matrix dimensions incompatible for Product");
+	//	System.err.print("m1 * m2 = Matrix dimensions incompatible for Product");
 		System.exit(1);
 		}
 
 		Matrix product = new Matrix(this.rowsize, mat.colsize);
 		int productSum = 0;
-		int tempProduct = 0;
 		for(int i = 1; i < product.rowsize + 1 ; i++){
 			for( int j = 1; j < product.colsize + 1; j++){
 				for(int k = 1; k < this.colsize + 1; k++){
-					tempProduct = this.Get(i, k) * mat.Get(k, j);
-					productSum = productSum + tempProduct;
-					System.out.println("this.Get(i, k) is: " + this.Get(i, k));
-					System.out.println("mat.Get(k, j) is: " + mat.Get(k, j));
-					System.out.println("productSum is: " + productSum);
-					tempProduct = 0; //reset product for next dot product step
+					productSum = productSum + this.Get(i, k) * mat.Get(k, j);
+				//	System.out.println("this.Get(i, k) is: " + this.Get(i, k));
+				//	System.out.println("mat.Get(k, j) is: " + mat.Get(k, j));
+				//	System.out.println("productSum is: " + productSum);
 				}//end for
-				System.out.println("Attempting to place in product matrix.");
-				product.Set(i, j, productSum);
+			//	System.out.println("Attempting to place in product matrix.");
+				product.Set(i - 1, j - 1, productSum);
+			//	System.out.println("Succfessfully placed");
 				productSum = 0; //reset product Sum for next multiplication
 			}//end for
 		}//end for
