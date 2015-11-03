@@ -192,7 +192,7 @@ public class test{
 			map.add(p);
 		}
 				
-		System.out.print("Printing map m1:\n");
+		System.out.print("\n\nPrinting map m1:\n");
 		map.Print();
 		System.out.println();
 		
@@ -212,7 +212,7 @@ public class test{
 		System.out.println();
 
 		//test find
-		System.out.println("Testing find, Searching for first object of map1 and map2");
+		System.out.println("\nTesting find, Searching for first object of map1 and map2");
 		key = new MyChar();
 		key.Set('A');
 		MapIterator fn = map.find(key);
@@ -221,7 +221,7 @@ public class test{
 		fn.get().Print();
 
 		//testing dupilcate keys
-		System.out.println("\nTesting adding two duplicate keys (G, 99) (G, 100)");
+		System.out.println("\n\nTesting adding two duplicate keys (G, 99) (G, 100)");
 		key = new MyChar();
 		key.Set('G');
 		MyInteger intval = new MyInteger();
@@ -238,11 +238,19 @@ public class test{
 		map.Print();
 
 		//tesing find
-		System.out.println("\nTesting find with duplicate keys, should return first value at G");
+		System.out.println("\n\nTesting find with duplicate keys, should return first value at G");
 		key = new MyChar();
 		key.Set('G');
 		MapIterator fn2 = map.find(key);	
 		fn2.get().Print();
+
+		//testing find with no key
+		System.out.println("\n\nTesting find with nonexistent key, should return last element");
+		key = new MyChar();
+		key.Set('Y');
+		MapIterator fn3 = map.find(key);	
+		fn3.get().Print();
+		
 		
 	
 		System.out.println("\n\nEnd of Test"); 

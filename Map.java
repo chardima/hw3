@@ -54,7 +54,9 @@ class Map {
 	public MapIterator find(MyChar key){
 		MapIterator itr = this.begin();
 		char k = key.Get();
-		while(itr != null){
+
+		//while(!itr.equals(this.end())){
+		for(int i = 0; i < length-1; i++){
 			char check = ((MyChar)(((Pair)itr.get()).getKey())).Get();
 			if(k == check){
 				return itr;
