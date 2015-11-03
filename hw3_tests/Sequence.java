@@ -166,28 +166,25 @@ public class Sequence extends Element{
 			//System.out.println(current.getData());
 			if (current.getData() instanceof MyInteger){
 				//System.out.println(" INT:");
-				Node newNode = new Node(current.getData()); 
+				MyInteger j = new MyInteger(); 
+				j.Set(((MyInteger)current.getData()).Get());
+				Node newNode = new Node(j); 
 				newSeq.seq.add(newNode, i);
 				newSeq.length++;	
 				//i++;
 			}
 			else if (current.getData() instanceof MyChar){
 				//System.out.println(" CHAR:");
-                                Node newNode = new Node(current.getData());		
+				MyChar c = new MyChar(); 
+				c.Set(((MyChar)current.getData()).Get());
+                                Node newNode = new Node(c);		
 				newSeq.seq.add(newNode, i);
 				newSeq.length++;
 				//i++;
 			}
 			else if(current.getData() instanceof Sequence){
 					Sequence cpy = new Sequence();
-				 	Sequence s = ((Sequence)current.getData()).copy();//creates a shallow copy for me to do easier referencing
-					Node c = s.seq.getNode(0);
-					while(c != null){
-						Node n = new Node(c.getData());
-						cpy.seq.add(n,cpy.length);
-						cpy.length++;
-						c = c.getNext(); 
-					} 	
+				 	cpy = ((Sequence)current.getData()).copy();//creates a shallow copy for me to do easier referencing
 					//cpy  = add(((Sequence)current.getData()).copy(), 0); //recursive copy
 					newSeq.seq.add(cpy,i);
 					newSeq.length++;
