@@ -24,6 +24,20 @@ class Map extends Sequence{
 
 	}
 
+	public MapIterator find(MyChar key){
+		
+	}
+
+	public MapIterator begin(){
+		MapIterator beg = new MapIterator(this.seq.getNode(1));
+		return beg;
+	}
+
+	public MapIterator end(){
+		MapIterator end = new MapIterator(this.seq.getNode(this.seq.length()+1).getNext());
+		return end;
+	}
+
 
 
 }
