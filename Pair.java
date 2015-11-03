@@ -9,10 +9,10 @@ class Pair extends Element{
 
 	}
 
-	Public MyChar getKey(){	
+	public MyChar getKey(){	
 		
 
-		return this.key
+		return this.key;
 
 
 

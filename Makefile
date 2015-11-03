@@ -1,6 +1,6 @@
 JCC = javac 
 
-test: MyInteger.class MyChar.class Sequence.class Element.class LinkedList.class Node.class SequenceIterator.class Matrix.class
+test: MyInteger.class MyChar.class Sequence.class Element.class LinkedList.class Node.class SequenceIterator.class Matrix.class Map.class MapIterator.class Pair.class
 	$(JCC) test.java
 
 MyInteger.class: Element.class
@@ -29,6 +29,15 @@ SequenceIterator.class: Sequence.class
 
 Matrix.class: Sequence.class
 	$(JCC) Matrix.java
+
+Map.class: MapIterator.class Sequence.class Pair.class
+	$(JCC) Map.java
+
+MapIterator.class: 
+	$(JCC) MapIterator.java
+
+Pair.class: Element.class
+	$(JCC) Pair.java
 
 clean: 
 	rm *.class
