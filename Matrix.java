@@ -70,26 +70,25 @@ public class Matrix extends Sequence {
 		}
 
 		Matrix product = new Matrix(this.rowsize, mat.colsize);
-		int tempProduct = 0;
+//		int tempProduct = 0;
 		int productSum = 0;
 		
 		for(int i = 0; i < product.rowsize ; i++){
 			for( int j = 0; j < product.colsize; j++){
 				for(int k = 0; k < this.colsize; k++){
-					tempProduct = this.Get(i, k) * mat.Get(k, j);
-					productSum = productSum + tempProduct;
-					tempProduct = 0; //reset product for next dot product step
+//					tempProduct = this.Get(i, k) * mat.Get(k, j);
+					productSum = productSum + (this.Get(i, k) * mat.Get(k, j));
+//					tempProduct = 0; //reset product for next dot product step
 				}//end for
-				product.Set(i, j, productSum); 
-				productSum = 0; //reset product Sum for next multiplication 
+				product.Set(i, j, productSum);
+				productSum = 0; //reset product Sum for next multiplication
 			}//end for
 		}//end for
 		return product;
 	}
 
 	public int Get(int rowsize, int colsize){
-		return ( (MyInteger)( ((Sequence)this.seq.get(rowsize)).seq.getNode(colsize) ).getData() ).Get();	
-	}
+		return ( (MyInteger)( ((Sequence)this.seq.get(rowsize)).seq.getNode(colsize) ).getData() ).Get();	}
 	
 
 	public void Print(){

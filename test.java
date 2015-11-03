@@ -82,14 +82,14 @@ public class test{
 		l.Print();
 *
 */
-		//TESTING COPY		
+/*		//TESTING COPY		
 		System.out.print("\nTesting copy\ns1:");
 		s.Print();
 		Sequence cpy = s.copy();
 		System.out.print("\nCopy:");
 		cpy.Print(); 
 		System.out.println(); 
-
+*/
 
 		//TESTING FLATTEN
 		System.out.println("\nTesting flatten, with sequence [6, '9'] in s1 index 2:");
@@ -142,7 +142,6 @@ public class test{
 		for(it = s.begin(); !it.equal(s.end()); it.advance()){
 			(it.get()).Print();
 		}
-
 		//TESTINTG PART 5
 		System.out.println("\n\nTesting Matrices");
 		System.out.print("m1:\n");
@@ -170,9 +169,13 @@ public class test{
 		Matrix m3 = m1.Sum(m2);
 		m3.Print();
 
+		System.out.println("\nm4 (product):");
+		Matrix m4 = m1.Product(m2);
+		m4.Print();
+		
 		System.out.println("\n\nEnd of Test"); 
 		return; 
-
+		
 	}
 
 
