@@ -19,9 +19,12 @@ class Pair extends Element{
 	}
 
 	public void Print(){
-		System.out.print("( " +"\'" + key + "\' ");
+		//System.out.print("( " +"\'" + key.Get() + "\' ");
+		System.out.print("(");
+		key.Print();
+		System.out.print(" ");
 		value.Print();
-		System.out.print(" )");  
+		System.out.print(")");  
 
 	}
 

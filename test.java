@@ -177,35 +177,40 @@ public class test{
 		m4.Print();
 	
 		//TESTING PART 6
-		Map m = new Map();
+		Map map = new Map();
 		MapIterator mt;
 		Pair p;
 		MyChar key;
 		
 		for(int i = 0; i < 10; i++){ 
 			key = new MyChar();
-			key.Set( (char) i);
-			MyInteger val = new MyInteger();
-			val.Set(i);
-			p = new Pair(key, val);
+			key.Set( (char) (65+i));
+//			System.out.print((char)(65+ i));
+			MyInteger val2 = new MyInteger();
+			val2.Set(i);
+			p = new Pair(key, val2);
 			map.add(p);
-			}
+		}
 				
-		System.out.print("Printing map m1: " + m.Print() + "\n");
+		System.out.print("Printing map m1: ");
+		map.Print();
+		System.out.println();
 		
-		Map m2 = new Map();
+		Map map2 = new Map();
 		
-		for(int = 0; i < 69; i++){
+		for(int i = 0; i < 69; i++){
 			key = new MyChar();
 			key.Set('A');
-			MyInteger val = new MyInteger();
-			val.Set(i + 420);
-			p = new Pair(key, val);
-			map.add(p);
+			MyInteger val3 = new MyInteger();
+			val3.Set(i + 420);
+			p = new Pair(key, val3);
+			map2.add(p);
 		}
 
 
-		System.out.print("Printing map m2: " + m2.Print() + "\n");
+		System.out.print("Printing map m2: ");
+		map2.Print();
+		System.out.println();
 		
 	
 		System.out.println("\n\nEnd of Test"); 
