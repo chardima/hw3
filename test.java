@@ -207,10 +207,42 @@ public class test{
 			map2.add(p);
 		}
 
-
 		System.out.print("Printing map m2:\n");
 		map2.Print();
 		System.out.println();
+
+		//test find
+		System.out.println("Testing find, Searching for first object of map1 and map2");
+		key = new MyChar();
+		key.Set('A');
+		MapIterator fn = map.find(key);
+		fn.get().Print();
+		fn = map2.find(key);
+		fn.get().Print();
+
+		//testing dupilcate keys
+		System.out.println("\nTesting adding two duplicate keys (G, 99) (G, 100)");
+		key = new MyChar();
+		key.Set('G');
+		MyInteger intval = new MyInteger();
+		intval = new MyInteger();
+		intval.Set(99);
+		p = new Pair(key, intval);
+		map.add(p);
+		intval = new MyInteger();
+		intval.Set(100);
+		key = new MyChar();
+		key.Set('G');
+		p = new Pair(key, intval);
+		map.add(p);
+		map.Print();
+
+		//tesing find
+		System.out.println("\nTesting find with duplicate keys, should return first value at G");
+		key = new MyChar();
+		key.Set('G');
+		MapIterator fn2 = map.find(key);	
+		fn2.get().Print();
 		
 	
 		System.out.println("\n\nEnd of Test"); 

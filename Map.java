@@ -55,7 +55,7 @@ class Map {
 		MapIterator itr = this.begin();
 		char k = key.Get();
 		while(itr != null){
-			char check = (((MyChar)itr.get()).Get());
+			char check = ((MyChar)(((Pair)itr.get()).getKey())).Get();
 			if(k == check){
 				return itr;
 			}
@@ -71,11 +71,13 @@ class Map {
 		}(*/
 
 		Node curr = this.seq.getNode(1);
+		System.out.print("[ ");
 		while(curr != null){
 			curr.getData().Print();
-			System.out.println();
+			System.out.print(" ");
 			curr = curr.getNext();
 		}
+		System.out.print("]");
 	}
 
 	public MapIterator begin(){
