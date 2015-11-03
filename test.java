@@ -142,7 +142,7 @@ public class test{
 		for(it = s.begin(); !it.equal(s.end()); it.advance()){
 			(it.get()).Print();
 		}
-		//TESTINTG PART 5
+		//TESTING PART 5
 		System.out.println("\n\nTesting Matrices");
 		System.out.print("m1:\n");
 		Matrix m1 = new Matrix(2,2);
@@ -175,14 +175,45 @@ public class test{
 		System.out.println("\nm4 (product):");
 		Matrix m4 = m1.Product(m2);
 		m4.Print();
+	
+		//TESTING PART 6
+		Map m = new Map();
+		MapIterator mt;
+		Pair p;
+		MyChar key;
 		
+		for(int i = 0; i < 10; i++){ 
+			key = new MyChar();
+			key.Set( (char) i);
+			MyInteger val = new MyInteger();
+			val.Set(i);
+			p = new Pair(key, val);
+			map.add(p);
+			}
+				
+		System.out.print("Printing map m1: " + m.Print() + "\n");
+		
+		Map m2 = new Map();
+		
+		for(int = 0; i < 69; i++){
+			key = new MyChar();
+			key.Set('A');
+			MyInteger val = new MyInteger();
+			val.Set(i + 420);
+			p = new Pair(key, val);
+			map.add(p);
+		}
+
+
+		System.out.print("Printing map m2: " + m2.Print() + "\n");
+		
+	
 		System.out.println("\n\nEnd of Test"); 
 		return; 
 		
 	}
-
-
-
-
-
+		
+		
+		
+			
 }
