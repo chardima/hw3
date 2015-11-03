@@ -79,7 +79,7 @@ public class Matrix extends Sequence {
 	public Matrix Product(Matrix mat){
 	//this = A, mat = B
 		if(this.colsize != mat.rowsize){
-	//	System.err.print("m1 * m2 = Matrix dimensions incompatible for Product");
+		System.out.println("Matrix dimensions incompatible for Product");
 		System.exit(1);
 		}
 
@@ -88,7 +88,7 @@ public class Matrix extends Sequence {
 		for(int i = 1; i < product.rowsize + 1 ; i++){
 			for( int j = 1; j < product.colsize + 1; j++){
 				for(int k = 1; k < this.colsize + 1; k++){
-					productSum = productSum + this.Get(i, k) * mat.Get(k, j);
+					productSum = productSum + this.Get(i-1, k-1) * mat.Get(k-1, j-1);
 				//	System.out.println("this.Get(i, k) is: " + this.Get(i, k));
 				//	System.out.println("mat.Get(k, j) is: " + mat.Get(k, j));
 				//	System.out.println("productSum is: " + productSum);
@@ -103,7 +103,14 @@ public class Matrix extends Sequence {
 	}
 
 	public int Get(int rowsize, int colsize){
-		return ( (MyInteger)( ((Sequence)this.seq.get(rowsize)).seq.getNode(colsize) ).getData() ).Get();	}
+		rowsize++;
+		colsize++;
+		Sequence row = (Sequence)this.seq.get(rowsize); //access row
+		Node col = row.seq.getNode(colsize);	//access col
+		int data = ((MyInteger)col.getData()).Get();		//access data
+		//return ( (MyInteger)( ((Sequence)this.seq.get(rowsize)).seq.getNode(colsize) ).getData() ).Get();	}
+		return data;
+	}
 	
 
 	public void Print(){
