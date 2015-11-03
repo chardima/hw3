@@ -82,14 +82,14 @@ public class test{
 		l.Print();
 *
 */
-/*		//TESTING COPY		
+		//TESTING COPY		
 		System.out.print("\nTesting copy\ns1:");
 		s.Print();
 		Sequence cpy = s.copy();
 		System.out.print("\nCopy:");
 		cpy.Print(); 
 		System.out.println(); 
-*/
+
 
 		//TESTING FLATTEN
 		System.out.println("\nTesting flatten, with sequence [6, '9'] in s1 index 2:");
@@ -165,6 +165,9 @@ public class test{
 		System.out.println("\nm2:");
 		m2.Print();//print m1
 
+		System.out.println("\nTesting Get...");
+		System.out.print(m2.Get(1, 1) +" \n");
+		
 		System.out.println("\nm3 (sum):");
 		Matrix m3 = m1.Sum(m2);
 		m3.Print();

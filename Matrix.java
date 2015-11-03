@@ -79,7 +79,7 @@ public class Matrix extends Sequence {
 	public Matrix Product(Matrix mat){
 	//this = A, mat = B
 		if(this.colsize != mat.rowsize){
-		System.err.print("m1 * m2 = Matrix dimensions incompatible for Product");
+		System.out.println("Matrix dimensions incompatible for Product");
 		System.exit(1);
 		}
 		this.Print();
@@ -120,15 +120,17 @@ public class Matrix extends Sequence {
 /*
 		Matrix product = new Matrix(this.rowsize, mat.colsize);
 		int productSum = 0;
-		
-		for(int i = 0; i < product.rowsize ; i++){
-			for( int j = 0; j < product.colsize; j++){
-				for(int k = 0; k < this.colsize; k++){
-//					tempProduct = this.Get(i, k) * mat.Get(k, j);
-					productSum = productSum + (this.Get(i, k) * mat.Get(k, j));
-//					tempProduct = 0; //reset product for next dot product step
+		for(int i = 1; i < product.rowsize + 1 ; i++){
+			for( int j = 1; j < product.colsize + 1; j++){
+				for(int k = 1; k < this.colsize + 1; k++){
+					productSum = productSum + this.Get(i-1, k-1) * mat.Get(k-1, j-1);
+				//	System.out.println("this.Get(i, k) is: " + this.Get(i, k));
+				//	System.out.println("mat.Get(k, j) is: " + mat.Get(k, j));
+				//	System.out.println("productSum is: " + productSum);
 				}//end for
-				product.Set(i, j, productSum);
+			//	System.out.println("Attempting to place in product matrix.");
+				product.Set(i - 1, j - 1, productSum);
+			//	System.out.println("Succfessfully placed");
 				productSum = 0; //reset product Sum for next multiplication
 			}//end for
 		}//end for
@@ -137,7 +139,13 @@ public class Matrix extends Sequence {
 	}
 
 	public int Get(int rowsize, int colsize){
-		return ( (MyInteger)( ((Sequence)this.seq.get(rowsize)).seq.getNode(colsize) ).getData() ).Get();	
+		rowsize++;
+		colsize++;
+		Sequence row = (Sequence)this.seq.get(rowsize); //access row
+		Node col = row.seq.getNode(colsize);	//access col
+		int data = ((MyInteger)col.getData()).Get();		//access data
+		//return ( (MyInteger)( ((Sequence)this.seq.get(rowsize)).seq.getNode(colsize) ).getData() ).Get();	}
+		return data;
 	}
 	
 
