@@ -25,12 +25,28 @@ class Map {
 		System.out.println("adding at index " + counter);
 		this.seq.add(n, counter);
 		this.length++;*/
+
+		int index = 1; //index to add
+
+		//calculate index to add alphabetically
+		Node curr = this.seq.getNode(1);
+		char curr_key;
+		char inval_key = inval.getKey().Get();
+		while(curr != null && length> 0){
+			curr_key = ((Pair)curr.getData()).getKey().Get();
+			//System.out.println("key:" + curr_key);
+			if(curr_key > inval_key){
+				break;
+			}
+			curr = curr.getNext();
+			index++;
+		}
 		
 		Node n = new Node(inval);
-		this.seq.add(n, this.length+1);
-		System.out.print("adding at index " + this.length + " pair:" + inval.getKey().Get() + " ");
-		inval.value.Print();
-		System.out.println();
+		this.seq.add(n, index);
+		//System.out.print("adding at index " + this.length + " pair:" + inval.getKey().Get() + " ");
+		//inval.value.Print();
+		//System.out.println();
 		length++;
 
 	}
@@ -49,9 +65,16 @@ class Map {
 	}
 
 	public void Print(){
-		MapIterator it;
+		/*MapIterator it;
 		for(it = this.begin(); !it.equals(this.end()); it.advance()){
 			((Element)it.get()).Print();
+		}(*/
+
+		Node curr = this.seq.getNode(1);
+		while(curr != null){
+			curr.getData().Print();
+			System.out.println();
+			curr = curr.getNext();
 		}
 	}
 

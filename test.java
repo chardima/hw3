@@ -192,23 +192,23 @@ public class test{
 			map.add(p);
 		}
 				
-		System.out.print("Printing map m1: ");
+		System.out.print("Printing map m1:\n");
 		map.Print();
 		System.out.println();
 		
 		Map map2 = new Map();
 		
-		for(int i = 0; i < 69; i++){
+		for(int i = 0; i < 10; i++){
 			key = new MyChar();
-			key.Set('A');
+			key.Set( (char)(74-i));
 			MyInteger val3 = new MyInteger();
-			val3.Set(i + 420);
+			val3.Set(i);
 			p = new Pair(key, val3);
 			map2.add(p);
 		}
 
 
-		System.out.print("Printing map m2: ");
+		System.out.print("Printing map m2:\n");
 		map2.Print();
 		System.out.println();
 		
