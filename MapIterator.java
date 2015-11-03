@@ -12,11 +12,20 @@ class MapIterator{
 
 	}
 
-	public Element get(){
+	public Pair get(){
 	
-		return this.curr.getData();
+		return (Pair)this.curr.getData();
 		
 
+	}
+
+	public boolean equal(MapIterator other){
+		if(this.curr == other.curr){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 
 }

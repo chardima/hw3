@@ -142,7 +142,7 @@ public class test{
 		for(it = s.begin(); !it.equal(s.end()); it.advance()){
 			(it.get()).Print();
 		}
-		//TESTINTG PART 5
+		//TESTING PART 5
 		System.out.println("\n\nTesting Matrices");
 		System.out.print("m1:\n");
 		Matrix m1 = new Matrix(2,2);
@@ -175,14 +175,90 @@ public class test{
 		System.out.println("\nm4 (product):");
 		Matrix m4 = m1.Product(m2);
 		m4.Print();
+	
+		//TESTING PART 6
+		Map map = new Map();
+		MapIterator mt;
+		Pair p;
+		MyChar key;
 		
+		for(int i = 0; i < 10; i++){ 
+			key = new MyChar();
+			key.Set( (char) (65+i));
+//			System.out.print((char)(65+ i));
+			MyInteger val2 = new MyInteger();
+			val2.Set(i);
+			p = new Pair(key, val2);
+			map.add(p);
+		}
+				
+		System.out.print("\n\nPrinting map m1:\n");
+		map.Print();
+		System.out.println();
+		
+		Map map2 = new Map();
+		
+		for(int i = 0; i < 10; i++){
+			key = new MyChar();
+			key.Set( (char)(74-i));
+			MyInteger val3 = new MyInteger();
+			val3.Set(i);
+			p = new Pair(key, val3);
+			map2.add(p);
+		}
+
+		System.out.print("Printing map m2:\n");
+		map2.Print();
+		System.out.println();
+
+		//test find
+		System.out.println("\nTesting find, Searching for first object of map1 and map2");
+		key = new MyChar();
+		key.Set('A');
+		MapIterator fn = map.find(key);
+		fn.get().Print();
+		fn = map2.find(key);
+		fn.get().Print();
+
+		//testing dupilcate keys
+		System.out.println("\n\nTesting adding two duplicate keys (G, 99) (G, 100)");
+		key = new MyChar();
+		key.Set('G');
+		MyInteger intval = new MyInteger();
+		intval = new MyInteger();
+		intval.Set(99);
+		p = new Pair(key, intval);
+		map.add(p);
+		intval = new MyInteger();
+		intval.Set(100);
+		key = new MyChar();
+		key.Set('G');
+		p = new Pair(key, intval);
+		map.add(p);
+		map.Print();
+
+		//tesing find
+		System.out.println("\n\nTesting find with duplicate keys, should return first value at G");
+		key = new MyChar();
+		key.Set('G');
+		MapIterator fn2 = map.find(key);	
+		fn2.get().Print();
+
+		//testing find with no key
+		System.out.println("\n\nTesting find with nonexistent key, should return last element");
+		key = new MyChar();
+		key.Set('Y');
+		MapIterator fn3 = map.find(key);	
+		fn3.get().Print();
+		
+		
+	
 		System.out.println("\n\nEnd of Test"); 
 		return; 
 		
 	}
-
-
-
-
-
+		
+		
+		
+			
 }

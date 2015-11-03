@@ -1,7 +1,7 @@
 all: hw3  t2 t3 t4 t5 t6
 
 
-hw3: Sequence.class Element.class MyInteger.class MyChar.class SequenceIterator.class
+hw3: Sequence.class Element.class MyInteger.class MyChar.class SequenceIterator.class Map.class Pair.class MapIterator.class
 
 Element.class: 
 	javac Element.java
@@ -17,6 +17,15 @@ MyChar.class: Element.class
 
 SequenceIterator.class: Sequence.class
 	javac SequenceIterator.java
+
+Map.class:
+	javac Map.java
+
+Pair.class: Element.class
+	javac Pair.java
+
+MapIterator.class:
+	javac MapIterator.java
 
 t2: Sequence.class Element.class MyInteger.class MyChar.class
 	javac Test2.java ; java Test2 > Test2.output; diff Test2.correct Test2.output

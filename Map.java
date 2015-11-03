@@ -57,13 +57,14 @@ class Map {
 
 		//while(!itr.equals(this.end())){
 		for(int i = 0; i < length-1; i++){
-			char check = ((MyChar)(((Pair)itr.get()).getKey())).Get();
+			char check = ((MyChar)((itr.get()).getKey())).Get();
 			if(k == check){
-				return itr;
+				//return itr;
+				break;
 			}
 			itr = itr.advance(); 
 		}
-		return itr; 
+		return itr;
 	}
 
 	public void Print(){
@@ -88,6 +89,7 @@ class Map {
 	}
 
 	public MapIterator end(){
+
 		MapIterator end = new MapIterator(this.seq.getNode(this.seq.length()+1).getNext());
 		return end;
 	}
