@@ -85,14 +85,18 @@ public class Matrix extends Sequence {
 
 		Matrix product = new Matrix(this.rowsize, mat.colsize);
 		int productSum = 0;
-		
-		for(int i = 0; i < product.rowsize ; i++){
-			for( int j = 0; j < product.colsize; j++){
-				for(int k = 0; k < this.colsize; k++){
-//					tempProduct = this.Get(i, k) * mat.Get(k, j);
-					productSum = productSum + (this.Get(i, k) * mat.Get(k, j));
-//					tempProduct = 0; //reset product for next dot product step
+		int tempProduct = 0;
+		for(int i = 1; i < product.rowsize + 1 ; i++){
+			for( int j = 1; j < product.colsize + 1; j++){
+				for(int k = 1; k < this.colsize + 1; k++){
+					tempProduct = this.Get(i, k) * mat.Get(k, j);
+					productSum = productSum + tempProduct;
+					System.out.println("this.Get(i, k) is: " + this.Get(i, k));
+					System.out.println("mat.Get(k, j) is: " + mat.Get(k, j));
+					System.out.println("productSum is: " + productSum);
+					tempProduct = 0; //reset product for next dot product step
 				}//end for
+				System.out.println("Attempting to place in product matrix.");
 				product.Set(i, j, productSum);
 				productSum = 0; //reset product Sum for next multiplication
 			}//end for
