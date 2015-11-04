@@ -20,12 +20,7 @@ class MapIterator{
 	}
 
 	public boolean equal(MapIterator other){
-		if(this.curr == other.curr){
-			return true;
-		}
-		else{
-			return false;
-		}
+		return this.curr == other.curr;
 	}
 
 }

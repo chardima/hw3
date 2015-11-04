@@ -118,12 +118,12 @@ class Test6 {
   	}
 	
 	// 4. Test find
+
 	System.out.println("**** Test find method");
 	// Try to find non-existing pair
 	System.out.println("**** Test find method -- non-existent key");
 	key = new MyChar();
 	key.Set('$');
-	it1 = map2.find(key);
 	if (it1.equal(map2.end()))
 	   System.out.println("No such pair with key '$' found.");
 	else
